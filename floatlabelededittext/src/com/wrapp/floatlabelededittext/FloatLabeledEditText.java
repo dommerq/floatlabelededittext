@@ -96,9 +96,6 @@ public class FloatLabeledEditText extends LinearLayout {
             setHint(hint);
         }
 
-        if (inputType != EditorInfo.TYPE_NULL) {
-            editText.setInputType(inputType);
-        }
         editText.setImeOptions(imeOptions);
         if (imeActionId > -1 && !TextUtils.isEmpty(imeActionLabel)) {
             editText.setImeActionLabel(imeActionLabel, imeActionId);
@@ -106,6 +103,10 @@ public class FloatLabeledEditText extends LinearLayout {
         editText.setSingleLine(singleLine);
         hintTextView.setTextColor(hintColor != null ? hintColor : ColorStateList.valueOf(Color.BLACK));
         editText.setTextColor(textColor != null ? textColor : ColorStateList.valueOf(Color.BLACK));
+  
+        if (inputType != EditorInfo.TYPE_NULL) {
+            editText.setInputType(inputType);
+        }
 
         hintTextView.setVisibility(View.INVISIBLE);
         editText.addTextChangedListener(onTextChanged);
